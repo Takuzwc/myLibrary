@@ -23,6 +23,21 @@ duration.addEventListener('click', function () {
   duration.classList.toggle(mod.off());
 });
 
+//Button 2
+const btnMode = document.querySelector('.btn-active');
+const modeText = document.querySelector('.mode--text');
+
+btnMode.addEventListener('click', function (e) {
+  const clicked = e.target.closest('.btn--inaframe');
+
+  //remove active
+  //btnMode.classList.remove('active--one');
+
+  //Active
+  clicked.style.border = ` 2px solid #e74804`;
+  modeText.innerHTML = 'On';
+});
+
 //Cards
 
 //card1
@@ -40,8 +55,10 @@ const image2Section = document.querySelector('.image--section2');
 card1.addEventListener('click', function (e) {
   e.preventDefault();
   card1.style = `height: 340px`;
-  cardDescription.classList.toggle('hidden');
-  cardBtns.classList.toggle('hidden');
+  setTimeout(() => {
+    cardDescription.classList.remove('hidden');
+    cardBtns.classList.remove('hidden');
+  }, 100);
   imageSection.style = `  transform: translateY(-35px);
   transition: transform 1s ease 0.34s;`;
 });
@@ -50,6 +67,6 @@ card2.addEventListener('click', function (e) {
   e.preventDefault();
   card2Btn.classList.toggle('hidden');
   image2Section.style = `  transform: translateY(-35px);
-  transition: transform 1s ease 0.34s;`;
+    transition: transform 1s ease 0.34s;`;
   card2.style = `height: 300px;`;
 });

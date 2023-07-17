@@ -98,6 +98,33 @@ body {
   transition: transform 1s ease 0.34s;
 }
 
+/*--------button 2--------*/
+.btn-active {
+  display: flex;
+  margin-top: 45px;
+  margin-left: 20px;
+  width: 115px;
+  height: 48px;
+  border: 2px solid #0a0a0a;
+  border-radius: 30px;
+}
+.btn--inaframe {
+  margin: 0.2px;
+  width: 115px;
+  height: 45px;
+  border: 2px solid #fff;
+  background: #0a0a0a;
+  border-radius: 30px;
+}
+.btn--inaframe .mode--text {
+  margin-top: 5px;
+  margin-left: 38px;
+  color: rgb(66, 65, 65);
+  font-size: 25px;
+}
+.active--one {
+  border: 2px solid #e74804;
+}
 /*----------card section-------*/
 .box-1 {
   border: 2px solid purple;
@@ -158,18 +185,16 @@ body {
   border-radius: 8px;
   color: #fff;
   font-size: 15px;
-}
-.btn-follow {
   background: #f014a0;
   border: none;
 }
-.btn-message {
+.btn-btn:hover {
   width: 100px;
+  cursor: pointer;
   background: #fff;
   color: rgb(107, 105, 105);
   border: 1px solid rgb(140, 136, 136);
 }
-
 .image--section {
   margin-left: 44px;
 }
