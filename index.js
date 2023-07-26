@@ -1,5 +1,15 @@
 'use strict';
+/*-------------------active icons------------------*/
+const btnAction = document.querySelector('.btn--action');
+const btnFlusher = document.querySelector('.btn--flusher');
 
+btnFlusher.addEventListener('click', function () {
+  btnFlusher.style = `border: 2px solid orangered;
+  animation: none;`;
+  console.log('clicked');
+});
+
+/*-------------------Buttons------------------*/
 const duration = document.querySelector('.btn-duration');
 const shifter = document.querySelector('.shifter');
 
@@ -38,7 +48,7 @@ btnMode.addEventListener('click', function (e) {
   modeText.innerHTML = 'On';
 });
 
-//Cards
+/*-------------------Cards------------------*/
 
 //card1
 const card1 = document.querySelector('.card-1');
@@ -70,3 +80,53 @@ card2.addEventListener('click', function (e) {
     transition: transform 1s ease 0.34s;`;
   card2.style = `height: 300px;`;
 });
+
+//scrol cards
+/*
+const allCards = document.querySelectorAll('.scroler--card');
+const parentContainer = document.querySelector('.container--parent');
+const cords = parentContainer.getBoundingClientRect();
+console.log(cords);
+
+const revealCards = function (entries, observer) {
+  const [entry] = entries;
+
+  if (!entry.isIntersecting) return;
+
+  entry.target.classList.remove('scroll-card--hidden');
+  observer.unobserve(entry.target);
+};
+
+const scrollObserver = new IntersectionObserver(revealCards, {
+  root: null,
+  threshold: 0.15,
+});
+
+allCards.forEach(function (card) {
+  scrollObserver.observe(card);
+  card.classList.add('scroll-card--hidden');
+});
+*/
+
+const allCards = document.querySelectorAll('.scroler--card');
+const parentContainer = document.querySelector('.container--parent');
+
+window.addEventListener('wheel', checkBoxes);
+checkBoxes();
+
+const cords = parentContainer.getBoundingClientRect();
+console.log(cords);
+
+function checkBoxes() {
+  const triggerRight = window.innerWidth / 2;
+
+  allCards.forEach(card => {
+    const cardleft = card.getBoundingClientRect().left;
+
+    if (cardleft > triggerRight) {
+      card.classList.add('scroll-card--hidden');
+    } else {
+      card.classList.remove('scroll-card--hidden');
+    }
+  });
+}
